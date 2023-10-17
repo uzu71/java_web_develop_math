@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>自動計算</title>
+</head>
+<body>
+	<h1>自動計算</h1>
+	
+<form action="input-servlet" method="GET">
+    <h2>&#8203;【計算方法】&#8203;</h2>
+    <h3>
+        <input type="radio" name="how" value="階乗" id="kaizyoRadio" checked>階乗
+        <input type="radio" name="how" value="等差数列" id="tousaRadio">等差数列
+        <input type="radio" name="how" value="等比数列" id="touhiRadio">等比数列
+        <input type="radio" name="how" value="最小公倍数" id="koubaiRadio">最小公倍数
+        <input type="radio" name="how" value="最大公約数" id="kouyakusuRadio">最大公約数
+    </h3>
+    <br>
+
+    <div id="numberInputs">
+        <h2>&#8203;【数値】&#8203;</h2>
+        <h3><input type="text" name="number" required></h3>
+    </div>
+
+    <input type="submit" value="実行">
+    
+</form>
+
+<script>
+    // ラジオボタンの変更イベントをリッスン
+    // 階乗の数値入力
+    document.getElementById("kaizyoRadio").addEventListener("change", function () {
+		document.getElementById("numberInputs").innerHTML = `
+            <h2>&#8203;【数値】&#8203;</h2>
+            <h3><input type="text" name="number0" required></h3>`;
+    });
+
+	// 等差数列の数値入力
+    document.getElementById("tousaRadio").addEventListener("change", function () {
+        document.getElementById("numberInputs").innerHTML = `
+            <h2>&#8203;【数値：初項】&#8203;</h2>
+            <h3><input type="text" name="number0" required></h3>
+            <h2>&#8203;【数値：公差】&#8203;</h2>
+            <h3><input type="text" name="number1" required></h3>
+            <h2>&#8203;【数値：n】&#8203;</h2>
+            <h3><input type="text" name="number2" required></h3>`;
+    });
+    
+    // 等比数列の数値入力
+    document.getElementById("touhiRadio").addEventListener("change", function () {
+        document.getElementById("numberInputs").innerHTML = `
+            <h2>&#8203;【数値：初項】&#8203;</h2>
+            <h3><input type="text" name="number0" required></h3>
+            <h2>&#8203;【数値：公比】&#8203;</h2>
+            <h3><input type="text" name="number1" required></h3>
+            <h2>&#8203;【数値：n】&#8203;</h2>
+            <h3><input type="text" name="number2" required></h3>`;
+    });
+    
+    // 最小公倍数の数値入力
+    document.getElementById("koubaiRadio").addEventListener("change", function () {
+        document.getElementById("numberInputs").innerHTML = `
+            <h2>&#8203;【数値1】&#8203;</h2>
+            <h3><input type="text" name="number0" required></h3>
+            <h2>&#8203;【数値2】&#8203;</h2>
+            <h3><input type="text" name="number1" required></h3>`;
+    });
+    
+    // 最大公約数の数値入力
+    document.getElementById("kouyakusuRadio").addEventListener("change", function () {
+        document.getElementById("numberInputs").innerHTML = `
+            <h2>&#8203;【数値1】&#8203;</h2>
+            <h3><input type="text" name="number0" required></h3>
+            <h2>&#8203;【数値2】&#8203;</h2>
+            <h3><input type="text" name="number1" required></h3>`;
+    });
+    
+</script>
+
+	
+</body>
+</html>
